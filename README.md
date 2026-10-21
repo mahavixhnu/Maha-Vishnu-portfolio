@@ -31,11 +31,11 @@ npm run build
 
 Open `http://localhost:4321`. The supplied resume is available at `/Maha_Vishnu_Resume.pdf`, and the `/resume` page remains printable.
 
-## Content TODOs
+## Open items
 
 - `[LINKS]`: add repository and demo URLs for each project in `data.json`. Homepage cards omit links until they are supplied.
 - Production domain: replace the neutral `https://example.com` origin in `astro.config.mjs` before publishing.
-- Theme imagery: replace the labelled TODO SVGs in `src/assets/hero/` if personal visuals are supplied.
+- Theme imagery: replace the labelled placeholder SVGs in `src/assets/hero/` if personal visuals are supplied.
 
 ## License
 
