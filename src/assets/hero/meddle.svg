@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 1500" width="1500" height="1500" role="img" aria-label="TODO: replace theme image">
+  <defs>
+    <radialGradient id="glow"><stop stop-color="#69a3b0" stop-opacity=".6"/><stop offset=".65" stop-color="#1e646e" stop-opacity=".36"/><stop offset="1" stop-color="#0c2a2a"/></radialGradient>
+  </defs>
+  <rect width="1500" height="1500" fill="#0c2a2a"/>
+  <circle cx="750" cy="750" r="680" fill="url(#glow)"/>
+  <circle cx="750" cy="750" r="470" fill="none" stroke="#69a3b0" stroke-opacity=".24" stroke-width="3"/>
+  <text x="750" y="1410" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="34" letter-spacing="8" fill="#69a3b0" opacity=".65">TODO: YOUR IMAGE</text>
+</svg>

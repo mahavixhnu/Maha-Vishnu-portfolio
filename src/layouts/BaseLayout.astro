@@ -1,0 +1,130 @@
+---
+import InitialAttrs from '@design/chrome/InitialAttrs.astro'
+import PaletteBackground from '@design/chrome/PaletteBackground/PaletteBackground'
+import '@design/tokens/index.css'
+import { portfolioData as d } from '@features/portfolio/data/portfolioData'
+import { PALETTES } from '@utils/palettes'
+import { ATTRS } from '@hooks/useTheme'
+import { assets } from '@assets'
+
+// Resolve each palette's hero image (by basename) to a build-time URL.
+// Palettes with hero: null map to undefined, so the backdrop renders nothing.
+const HERO_IMAGES: Record<string, string> = {}
+for (const p of PALETTES) {
+    if (p.hero) {
+        const url = assets.heroImage(p.hero)
+        if (url) HERO_IMAGES[p.name] = url
+    }
+}
+
+interface Props {
+    title: string
+    description: string
+    canonical?: string
+    ogImage?: string
+    article?: {
+        publishedTime: string
+        modifiedTime?: string
+        tags?: string[]
+    }
+    noindex?: boolean
+    /** Per-page default content width. User can override via the `w`
+     *  shortcut, but each navigation lands on the page's stated default. */
+    defaultWidth?: 'wide' | 'narrow'
+}
+
+const SITE_URL = (Astro.site ?? Astro.url).origin
+
+/* Browser chrome (tab bar) colors, keyed by OS scheme. Deliberately not
+   the palette tokens: those flip with the user's palette at runtime,
+   while theme-color is static per page load. */
+const THEME_COLOR_DARK = '#0a0a0a'
+const THEME_COLOR_LIGHT = '#fafafa'
+
+const {
+    title,
+    description,
+    canonical = new URL(Astro.url.pathname, SITE_URL).href,
+    ogImage = '/og.svg',
+    article,
+    noindex = false,
+    defaultWidth = 'wide',
+} = Astro.props
+
+const fullOgImage = ogImage.startsWith('http') ? ogImage : SITE_URL + ogImage
+
+// JSON-LD Person schema for the site owner. Tells Google "this site is by
+// a real person" so it can show a knowledge-panel-style result for name
+// searches. Fields pulled from data.json so the schema stays in sync with
+// the on-page bio.
+const personSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: d.personal.name,
+    url: SITE_URL,
+    jobTitle: d.personal.tagline,
+    sameAs: [d.personal.github, d.personal.linkedin].filter(Boolean),
+}
+---
+
+<!doctype html>
+<html lang="en" {...{ [ATTRS.width]: defaultWidth, [ATTRS.mode]: 'light' }}>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="theme-color" content={THEME_COLOR_DARK} media="(prefers-color-scheme: dark)" />
+        <meta name="theme-color" content={THEME_COLOR_LIGHT} media="(prefers-color-scheme: light)" />
+
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href={canonical} />
+        <link rel="sitemap" href="/sitemap-index.xml" />
+        {noindex && <meta name="robots" content="noindex,nofollow" />}
+
+        <meta property="og:type" content={article ? 'article' : 'website'} />
+        <meta property="og:url" content={canonical} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={fullOgImage} />
+        <meta property="og:site_name" content={d.personal.name} />
+        <meta property="og:locale" content="en_US" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:url" content={canonical} />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        <meta name="twitter:image" content={fullOgImage} />
+
+        {
+            article && (
+                <>
+                    <meta property="article:published_time" content={article.publishedTime} />
+                    {article.modifiedTime && (
+                        <meta property="article:modified_time" content={article.modifiedTime} />
+                    )}
+                    {article.tags?.map((tag) => <meta property="article:tag" content={tag} />)}
+                </>
+            )
+        }
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;500;700&family=IBM+Plex+Sans:wght@300;500;700&family=Kode+Mono:wght@400;500&display=swap"
+        />
+
+        <script type="application/ld+json" is:inline set:html={JSON.stringify(personSchema)} />
+
+        <InitialAttrs />
+    </head>
+    <body>
+        <a href="#main" class="skip-link">Skip to content</a>
+        {/* Not interactive: SSR paints the layers, hydration only samples
+            the ambient gradient. Idle is enough. */}
+        <PaletteBackground heroImages={HERO_IMAGES} client:idle />
+        <slot />
+
+    </body>
+</html>

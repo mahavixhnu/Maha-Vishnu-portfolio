@@ -1,0 +1,342 @@
+{
+    "personal": {
+        "name": "Maha Vishnu",
+        "tagline": "A Software Engineer",
+        "email": "mahavishnu.cmpg@gmail.com",
+        "phone": "+91 8825775782",
+        "location": "Coimbatore, India",
+        "github": "https://github.com/mahavixhnu",
+        "linkedin": "https://www.linkedin.com/in/mahavishnu-dev/",
+        "summary": "",
+        "resumeSummary": "2026 B.Tech CSE graduate from Amrita Vishwa Vidyapeetham seeking an entry-level software development role. Built a real-time marketplace, GenAI assistant, and blockchain verification system with sub-3-second checks."
+    },
+    "sections": {
+        "experience": "Experience",
+        "skills": "Skills",
+        "projects": "Projects",
+        "education": "Education",
+        "contact": "Contact"
+    },
+    "footer": {
+        "taglines": [
+            "Thanks for reading."
+        ],
+        "meta": [
+            "© 2026 Maha Vishnu",
+            "Typeset in IBM Plex",
+            "Built with Astro + React"
+        ],
+        "source": {
+            "label": "",
+            "href": ""
+        },
+        "links": [
+            {
+                "label": "Keyboard shortcuts",
+                "href": "/shortcuts"
+            }
+        ]
+    },
+    "hero": {
+        "taglines": [
+            "A Software Engineer",
+            "An Agentic Engineer",
+            "Full Stack Engineer"
+        ],
+        "scrollHints": [
+            "scroll"
+        ]
+    },
+    "experience": [
+        {
+            "company": "Garuda Aerospace",
+            "role": "Software Engineer (R&D)",
+            "duration": "Apr 2026 – Jul 2026",
+            "logo": "",
+            "summary": [
+                "Added GenAI to QGroundControl (QGC), letting operators run missions and query flight data in plain English, cutting menu navigation time by ~40%.",
+                "Built an agentic AI workflow that plans tasks, calls tools, and verifies results, reducing manual ground-control steps by ~30%.",
+                "Secured AI commands with structured JSON outputs, input validation, and fallbacks, reaching ~90% valid-command accuracy across 100+ test prompts."
+            ],
+            "tech": [
+                "GenAI",
+                "Agentic AI",
+                "QGroundControl"
+            ]
+        },
+        {
+            "company": "Holistic MD LLP",
+            "role": "SDE Intern",
+            "duration": "Jun 2025 – Sep 2025",
+            "logo": "",
+            "summary": [
+                "Increased API throughput by 30%+ by building marketplace modules (React, Node.js, Express).",
+                "Cut API latency by 40% and production defects by 25% via secure coding (JWT, RBAC, input validation) and SQL query tuning.",
+                "Conducted 15+ code reviews per sprint (Git).",
+                "Wrote unit tests and debugged staging and production issues with the DevOps team (CI/CD, Git)."
+            ],
+            "tech": [
+                "React",
+                "Node.js",
+                "Express",
+                "SQL",
+                "Git",
+                "CI/CD"
+            ]
+        },
+        {
+            "company": "Amrita Student Association",
+            "role": "Student Developer",
+            "duration": "Sep 2025 – Jan 2026",
+            "logo": "",
+            "summary": [
+                "Built CampusCafe, a university marketplace web app (React, Vite, Node.js, Express, MongoDB).",
+                "Added JWT and OTP login, role-based access, real-time chat, and order updates (WebSockets).",
+                "Integrated Razorpay payments, an in-app wallet, and admin analytics (MongoDB aggregation).",
+                "Created a GenAI food assistant (Flask, local Ollama LLM)."
+            ],
+            "tech": [
+                "React",
+                "Vite",
+                "Node.js",
+                "Express",
+                "MongoDB",
+                "WebSockets",
+                "Razorpay",
+                "Flask",
+                "Ollama"
+            ]
+        }
+    ],
+    "education": [
+        {
+            "institution": "Amrita Vishwa Vidyapeetham",
+            "degree": "B.Tech Computer Science and Engineering",
+            "duration": "Sep 2022 – Jun 2026",
+            "location": "Coimbatore, India",
+            "logo": "",
+            "visible": true
+        }
+    ],
+    "projects": [
+        {
+            "name": "QGC (QGroundControl)",
+            "context": "",
+            "date": "",
+            "logo": "",
+            "summary": [
+                "GenAI and agentic AI layer for drone ground-control software, with plain-English mission control, tool-calling agents, and validated JSON commands at ~92% accuracy."
+            ],
+            "tech": [
+                "Python · LLM APIs · MAVLink · +2 more"
+            ],
+            "links": []
+        },
+        {
+            "name": "CampusCafe",
+            "context": "",
+            "date": "",
+            "logo": "",
+            "summary": [
+                "3-tier marketplace (React, Express REST API, MongoDB, MVC) combining real-time updates, Razorpay payments, admin analytics, and a GenAI food assistant."
+            ],
+            "tech": [
+                "React",
+                "Vite",
+                "Node.js",
+                "Express",
+                "MongoDB",
+                "WebSockets",
+                "Razorpay",
+                "Flask",
+                "Ollama"
+            ],
+            "links": []
+        },
+        {
+            "name": "Virtual Classroom",
+            "context": "",
+            "date": "",
+            "logo": "",
+            "summary": [
+                "Classes 6–12 learning platform with reusable React components, multi-page routing, and 5 learning games with randomized scoring and instant feedback."
+            ],
+            "tech": [
+                "React",
+                "Express",
+                "Mongoose",
+                "JWT",
+                "Multer"
+            ],
+            "links": []
+        },
+        {
+            "name": "Counterfeit Product Verification System",
+            "context": "",
+            "date": "",
+            "logo": "",
+            "summary": [
+                "Authenticity checks via image hashing, IPFS, and Ethereum smart contracts, integrated with AWS S3 using caching and presigned URLs for end-to-end verification in under 3 seconds."
+            ],
+            "tech": [
+                "Python",
+                "Flask",
+                "Web3.py",
+                "IPFS",
+                "Ethereum",
+                "AWS S3"
+            ],
+            "links": []
+        }
+    ],
+    "skills": {
+        "languages": [
+            {
+                "name": "Python",
+                "logo": "python"
+            },
+            {
+                "name": "SQL",
+                "logo": "sql"
+            },
+            {
+                "name": "JavaScript",
+                "logo": "javascript"
+            },
+            {
+                "name": "Java",
+                "logo": "java"
+            }
+        ],
+        "frameworks": [
+            {
+                "name": "React.js",
+                "logo": "react"
+            },
+            {
+                "name": "Node.js",
+                "logo": "nodedotjs"
+            },
+            {
+                "name": "Django",
+                "logo": "django"
+            }
+        ],
+        "databases": [
+            {
+                "name": "MongoDB",
+                "logo": "mongodb"
+            },
+            {
+                "name": "MySQL",
+                "logo": "mysql"
+            },
+            {
+                "name": "SQLite",
+                "logo": "sqlite"
+            }
+        ],
+        "tools": [
+            {
+                "name": "AWS (S3)",
+                "logo": "aws"
+            },
+            {
+                "name": "Git",
+                "logo": "git"
+            },
+            {
+                "name": "GitHub",
+                "logo": "github"
+            },
+            {
+                "name": "Postman",
+                "logo": "postman"
+            },
+            {
+                "name": "Linux",
+                "logo": "linux"
+            },
+            {
+                "name": "Jira",
+                "logo": "jira"
+            },
+            {
+                "name": "Confluence",
+                "logo": "confluence"
+            }
+        ],
+        "concepts": [
+            "Agentic AI",
+            "RAG",
+            "REST APIs",
+            "Unit Testing",
+            "Debugging",
+            "SDLC",
+            "Agile/Scrum",
+            "CI/CD",
+            "Generative AI (LLM integration)"
+        ]
+    },
+    "resume": {
+        "skillCategories": [
+            {
+                "label": "Languages",
+                "items": [
+                    "Python",
+                    "SQL",
+                    "JavaScript",
+                    "Java"
+                ]
+            },
+            {
+                "label": "Frameworks",
+                "items": [
+                    "React.js",
+                    "Node.js",
+                    "Django"
+                ]
+            },
+            {
+                "label": "Databases",
+                "items": [
+                    "MongoDB",
+                    "MySQL",
+                    "SQLite"
+                ]
+            },
+            {
+                "label": "Tools",
+                "items": [
+                    "AWS (S3)",
+                    "Git",
+                    "GitHub",
+                    "Postman",
+                    "Linux",
+                    "Jira",
+                    "Confluence"
+                ]
+            },
+            {
+                "label": "Concepts",
+                "items": [
+                    "Agentic AI",
+                    "RAG",
+                    "REST APIs",
+                    "Unit Testing",
+                    "Debugging",
+                    "SDLC",
+                    "Agile/Scrum",
+                    "CI/CD",
+                    "Generative AI (LLM integration)"
+                ]
+            }
+        ]
+    },
+    "certifications": [
+        "Python for Everybody (Coursera)",
+        "Blockchain Basics (Coursera)",
+        "Introduction to IoT (Cisco)",
+        "AWS Certified Developer Associate (in progress)"
+    ]
+}

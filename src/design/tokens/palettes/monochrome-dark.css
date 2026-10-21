@@ -1,0 +1,17 @@
+/* Monochrome dark: white ink on black paper. Text tiers are
+   solids = alpha-blend of white ink on black paper:
+   solid = 255*a + 0*(1-a) = 255*a. */
+:root[data-palette="monochrome-dark"] {
+    --ink: 255 255 255;
+    --paper: 0 0 0;
+    --bg: rgb(var(--paper));
+    --text: 255 255 255;
+    --text-secondary: 184 184 184;  /* 255*.72 */
+    --text-muted: 153 153 153;      /* 255*.6 */
+    --text-subtle: 92 92 92;        /* 255*.36 */
+    --accent: 255 255 255;
+    --accent-contrast: 0 0 0;
+    /* Theme-invariant dark surface (footer). Stays dark regardless of palette.
+       Space-separated channels so it composes with rgb(... / alpha). */
+    --surface-dark: 0 0 0;
+    --on-surface-dark: 255 255 255;

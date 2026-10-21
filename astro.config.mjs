@@ -6,8 +6,7 @@ import vercel from '@astrojs/vercel'
 
 // https://docs.astro.build/en/reference/configuration-reference/
 export default defineConfig({
-    // TODO: Replace this neutral origin with Maha Vishnu's domain before publishing.
-    site: 'https://example.com',
+    site: 'https://maha-vishnu-portfolio.vercel.app',
     output: 'static',
     adapter: vercel({
         // Keep web analytics off until a deployment is configured for this portfolio.

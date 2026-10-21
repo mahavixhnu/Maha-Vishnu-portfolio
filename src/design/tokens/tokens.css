@@ -1,0 +1,135 @@
+/* Design tokens.
+ Palettes define solid colors per tier. The two monochromes
+   (monochrome-light, monochrome-dark) are the defaults; their solid
+   tier values are the alpha-blend equivalents of the previous
+   ink-on-paper expressions, so the look is preserved exactly.
+   Colored palettes live in src/design/tokens/palettes/<name>.css
+   and are imported from index.css. */
+
+/* Declare --content-max as a typed custom property so it can transition.
+   Any element using max-width: var(--content-max) interpolates smoothly
+   between 1280px (wide) and 720px (narrow) when the w toggle flips. */
+@property --content-max {
+    syntax: "<length>";
+    inherits: true;
+    initial-value: 1280px;
+}
+
+:root {
+    /* Transition the width token itself so all consumers animate together. */
+    transition: --content-max var(--duration-slower) var(--ease-spring);
+
+    /* Base monochrome channels - still used by borders, glass, glow, and
+       any alpha-of-ink/paper expression that is not a text tier. */
+    --ink: 0 0 0;
+    --paper: 255 255 255;
+
+    /* Surface */
+    --bg: rgb(var(--paper));
+
+    /* Text tiers as solid triplets (monochrome-light defaults).
+       Solids = alpha-blend of ink on paper: solid = ink*a + paper*(1-a).
+       Keeping them as triplets lets each palette override them as solids
+       without recomputing alpha against a flipped ink/paper. */
+    --text: 0 0 0;
+    --text-secondary: 71 71 71;    /* ink@0.72 on white: 0*.72+255*.28 */
+    --text-muted: 102 102 102;     /* ink@0.6 on white: 0*.6+255*.4 */
+    --text-subtle: 163 163 163;    /* ink@0.36 on white: 0*.36+255*.64 */
+
+    /* Accent = pure ink (monochrome accent) */
+    --accent: 0 0 0;
+    --accent-contrast: 255 255 255;
+
+    /* Theme-invariant dark surface (footer). Stays dark regardless of palette.
+       Space-separated channels so it composes with rgb(... / alpha). */
+    --surface-dark: 0 0 0;
+    --on-surface-dark: 255 255 255;
+
+    /* Shadows - always cast dark, regardless of theme */
+    --shadow-sm: 0 2px 6px -1px rgb(0 0 0 / 0.10);
+    --shadow-md: 0 3px 10px -3px rgb(0 0 0 / 0.35);
+    --shadow-xl: 0 14px 32px -8px rgb(0 0 0 / 0.45);
+
+    /* Glows - centered, theme-following (use via filter: drop-shadow(...)) */
+    --glow-sm: 0 0 8px rgb(var(--ink) / 0.4);
+
+    /* Glass — translucent surfaces with backdrop-blur. Pair the bg with
+       --glass-blur on the same element. `--glass-bar` follows the page
+       background (subtle tint on the chrome). `--glass-scrim` is always-dark
+       for modal-style dimming, regardless of theme. */
+    --glass-bar: rgb(var(--paper) / 0.25);
+    --glass-scrim: rgb(var(--surface-dark) / 0.4);
+    --glass-blur: 12px;
+
+    /* Hero background image. The image is shown in fit (contain) so the full
+       image is visible with no crop; the surrounding space is filled by
+       an ambient wash (the same image, cover, heavily blurred to a
+       gradient) so the colors read as if the image continues. Opacity
+       keeps text readable over both layers. */
+    --hero-image-opacity: 0.5;
+    --hero-blur-ambient: 48px;
+    /* On narrow viewports the same blur radius covers proportionally
+       more of the smaller image, so it reads more aggressive. Halve it. */
+    --hero-blur-ambient-mobile: 8px;
+
+
+    /* Layout */
+    --content-max-wide: 1280px;
+    --content-max-narrow: 720px;
+    --content-max: var(--content-max-wide);
+    --content-gutter: var(--space-6);
+
+    /* Spacing — 4px base unit, half-steps for fine alignment. */
+    --space-px:  1px;
+    --space-0-5: 0.125rem;  /* 2px */
+    --space-1:   0.25rem;   /* 4px */
+    --space-1-5: 0.375rem;  /* 6px */
+    --space-2:   0.5rem;    /* 8px */
+    --space-2-5: 0.625rem;  /* 10px */
+    --space-3:   0.75rem;   /* 12px */
+    --space-3-5: 0.875rem;  /* 14px */
+    --space-4:   1rem;      /* 16px */
+    --space-4-5: 1.125rem;  /* 18px */
+    --space-5:   1.25rem;   /* 20px */
+    --space-6:   1.5rem;    /* 24px */
+    --space-7:   1.75rem;   /* 28px */
+    --space-8:   2rem;      /* 32px */
+    --space-12:  3rem;      /* 48px */
+    --space-16:  4rem;      /* 64px */
+    --space-20:  5rem;      /* 80px */
+    --space-24:  6rem;      /* 96px */
+    --space-40:  10rem;     /* 160px */
+
+    /* Durations */
+    --duration-fast:    150ms;
+    --duration-base:    200ms;
+    --duration-medium:  280ms;
+    --duration-slow:    400ms;
+    --duration-slower:  520ms;
+    --duration-slowest: 640ms;
+
+    /* Eases — out is responsive, spring overshoots gently. */
+    --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-spring: cubic-bezier(0.32, 0.72, 0, 1);
+
+    /* Radii */
+    --radius-sm:     4px;
+    --radius-md:     6px;
+    --radius-circle: 50%;
+    --radius-pill:   999px;
+
+    /* z-index layers */
+    --z-content:   1; /* above the palette background layer */
+    --z-navbar:    100;
+    --z-skip-link: 1000;
+    --z-cursor:    10000;
+
+    /* Border weights */
+    --border-hairline: 1px;
+
+    /* Focus ring (the site-wide :focus-visible style) */
+    --focus-ring-width: 2px;
+
+    /* Interaction */
+    --touch-target-min: 44px; /* WCAG minimum tappable size */
+}
