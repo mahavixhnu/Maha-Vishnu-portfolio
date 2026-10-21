@@ -6,7 +6,7 @@ import vercel from '@astrojs/vercel'
 
 // https://docs.astro.build/en/reference/configuration-reference/
 export default defineConfig({
-    site: 'https://maha-vishnu-portfolio.vercel.app',
+    site: 'https://maha-vishnu-dev.vercel.app',
     output: 'static',
     adapter: vercel({
         // Keep web analytics off until a deployment is configured for this portfolio.

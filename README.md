@@ -34,7 +34,7 @@ Open `http://localhost:4321`. The supplied resume is available at `/Maha_Vishnu_
 ## Open items
 
 - `[LINKS]`: add repository and demo URLs for each project in `data.json`. Homepage cards omit links until they are supplied.
-- Production domain: replace the neutral `https://example.com` origin in `astro.config.mjs` before publishing.
+- Production URL: [maha-vishnu-dev.vercel.app](https://maha-vishnu-dev.vercel.app/). Update `astro.config.mjs` if a custom domain is added later.
 - Theme imagery: replace the labelled placeholder SVGs in `src/assets/hero/` if personal visuals are supplied.
 
 ## License

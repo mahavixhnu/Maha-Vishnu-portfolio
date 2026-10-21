@@ -6,7 +6,7 @@ This file is the source of truth — read it before making any change.
 ## Project context
 
 Personal portfolio for Maha Vishnu. Single author, hand-built monochrome
-aesthetic. No production domain or deployment has been supplied.
+aesthetic. Production URL: https://maha-vishnu-dev.vercel.app/.
 
 **Owner:** Maha Vishnu — software development engineer, Coimbatore.
 
@@ -361,8 +361,8 @@ Common edits and the files they touch.
 
 ## Deploy & rollback
 
-- **Deploy:** TODO: configure a production domain and deployment for this portfolio.
-- **Preview deploys:** configure after selecting a deployment target.
+- **Deploy:** Push to `main` in `mahavixhnu/Maha-Vishnu-portfolio`; Vercel builds and deploys the static Astro site.
+- **Preview deploys:** Vercel Authentication protects previews; production is public.
 - **Rollback:** `v1-vite` and `v2-astro` tags mark known-good states.
   To roll back, `git checkout <tag>` and redeploy that commit from the
   Vercel dashboard (Deployments → find the tagged commit → "Promote to
